@@ -1,0 +1,1412 @@
+<?xml version="1.0" ?>
+<MGW>
+    <!-- Settings MGW -->
+    <Active_protocol protocol="sip" />
+    <TwinLine status="disable" />
+    <Common>
+        <!-- Common Settings MGW -->
+        <HostName name="$hostname" />
+        <Switch_L2 wan_lan="disable" wan_sfp0="disable" wan_sfp1="disable" wan_cpu0="disable" wan_cpu1="disable" lan_sfp0="disable" lan_sfp1="disable" lan_cpu0="disable" lan_cpu1="disable" sfp0_sfp1="disable" sfp0_cpu0="disable" sfp0_cpu1="disable" sfp1_cpu0="disable" sfp1_cpu1="disable" cpu0_cpu1="disable" />
+        <DHCP status="disable" option15="disable" option82="disable" option60="NPOTELECOM" circuit_ID="$hostname" remote_ID="" />
+        <DNS server1="" server2="" />
+        <Net_settings IP="192.168.1.1" mask="255.255.255.0" IP_gateway="192.168.1.254" MAC="1c:a0:d3:41:eb:da" SIP_port="5060" RTP_port="10000" />
+        <qos rtp_dscp="0" other_dscp="0" />
+        <Service_Port_settings status="disable" IP="1.1.1.1" mask="255.255.255.0" IP_gateway="" MAC="00:aa:bb:cc:dd:ff" />
+        <Radius status="disable" IP="1.1.1.1" port="1645" password="" access_attempts="5" />
+        <TACACS status="disable" server="" secret="" service="" />
+        <TR069 status="disable" url="">
+            <local interface="eth0" port="7547" username="cwmp" password="cwmp" provisioning_code="cwmp" />
+            <acs periodic_interval="30" username="cwmp" password="cwmp" url="http://192.168.1.1:9595" periodic_enable="1" />
+        </TR069>
+        <syslog_server status="disable" IP="192.1.1.1" type="syslogd" emerg="enable" alert="enable" crit="enable" err="enable" warning="enable" notice="enable" info="enable" debug="enable" />
+        <ntp_server status="disable" IP="" TZ="0" />
+        <HDmonitor critical_temp="100" />
+        <Timeout dialing="30" digits="4" blocking="120" howler="10" waitinganswer="800000" />
+        <ConfigNetProtocol ssh="enable" ftp="enable" web="enable" telnet="enable" lan_ftp="enable" lan_web="enable" lan_telnet="enable" lan_ssh="enable" voice_vlan_ftp="enable" voice_vlan_web="enable" voice_vlan_telnet="enable" voice_vlan_ssh="enable" signalling_vlan_ftp="enable" signalling_vlan_web="enable" signalling_vlan_telnet="enable" signalling_vlan_ssh="enable" manage_vlan_ftp="enable" manage_vlan_web="enable" manage_vlan_telnet="enable" manage_vlan_ssh="enable" />
+        <TOS rtp="0" />
+        <Dialplan rules="(x.T|#x.T|*x.T)" />
+        <Codecs first="g711a" second="-" third="-" />
+        <password retry="1" difok="1" minlen="3" dcredit="1" ucredit="1" lcredit="1" ocredit="1" minclass="1" maxrepeat="15" maxclassrepeat="15" mindays="0" maxdays="0" warnage="0" />
+        <SIP_settings>
+            <sip_port_autorization status="disable" />
+            <Registration Retry_interval="30" Timeout="3600" />
+            <UseDomainName status="disable" domain="ims.rt.ru" />
+            <StunServer status="disable" server="" />
+            <Outbound_Proxy status="disable" IP="" port="5070" />
+            <Failover_Mechanism status="disable" />
+            <Allow_Via_Rewrite status="enable" />
+            <AddReregister status="disable" timeout="0" />
+            <GlobalRegistration status="disable" login="undefined" password="undefined" />
+            <ExternalPlayFlash status="enable" />
+            <Transport type="udp" />
+            <Allow_Contact_Rewrite status="enable" />
+            <IMS status="disable" call_hold="call hold" call_waiting="call waiting" call_transfer="call transfer" three_party_conference="three party conference" hot_line="hot line" />
+            <SIP_server id="0" IP="ims.rt.ru" port="5060" MAC="1c:6f:65:49:7e:be" status="disable" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:AA:BB:CC:DD:EE" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:AA:BB:CC:DD:EE" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:AA:BB:CC:DD:EE" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:AA:BB:CC:DD:EE" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_codec_use Preffered_Use="PCMA" PCMA="1" PCMU="1" G729="1" G723="1" G726_16="1" G726_24="1" G726_32="1" G726_40="1" />
+        </SIP_settings>
+        <Megaco_h248_settings>
+            <MGC id="0" IP="192.1.1.1" port="2944" interface="0" status="disable" encoding_mode="megaco_pretty_text_encoder" version="1" port_prefix="a" port_postfix="" virtual_prefix="vt" />
+        </Megaco_h248_settings>
+        <H323_settings>
+            <H323 IP="1.1.1.1" port="0" status="disable" H323UseDomainName="disable" H323domain="" />
+        </H323_settings>
+        <Fax_settings>
+            <FAX faxType="2" faxMaxSpeed="0" faxMethodTcfProcedure="0" faxEcm="0" faxRedundacyCount="0" faxLossConcealment="0" />
+        </Fax_settings>
+        <VLAN status="enable" voice_id="$voicevlan" voice_priority="0" signalling_id="$voicevlan" signalling_priority="0" manage_id="$mnvlan" manage_priority="0" vlan_voice_ip="$voice_ip" vlan_manage_ip="$manage_ip" vlan_signalling_ip="$signalling_ip" />
+        <VLAN_DHCP_Voice_VLAN option15="disable" option82="disable" option60="NPOTELECOM" circuit_ID="" remote_ID="" />
+        <VLAN_DHCP_Signalling_VLAN option15="disable" option82="disable" option60="NPOTELECOM" circuit_ID="" remote_ID="" />
+        <VLAN_DHCP_Manage_VLAN option15="disable" option82="disable" option60="NPOTELECOM" circuit_ID="" remote_ID="" />
+        <LLDP status="disable" intervall="10" />
+        <STP status="disable" />
+        <DualHoming status="disable" status_failover="disable" mainPort="0" backupPort="0" />
+        <PPTP status="disable" login="" password="" serverAddr="" mtu="1000" mru="1000" />
+        <MSP status="disable" />
+        <SNMP status="disable" Version="2" read_community="public" write_community="private" />
+        <SNMP_Trap status="disable" Version="2" trap_community="public" destination_IP="192.1.1.1" destination_port="162" />
+        <Trap_Inform_mode status="disable" timeout="5" retry_time="3" />
+        <SNMP_Trap_status SIPRegister="disable" SIPChangeServer="disable" H248Service="disable" H248unexpected="disable" CriticalTemp="disable" InternalError="disable" />
+        <TFTPupdate status="disable" IP="192.1.1.1" timestatus="disable" time="0" loadconfig="disable" saveconfig="disable" />
+        <DDNS />
+        <Autoprovision sip_pnp_status="disable" />
+        <P2PSIP status="disable" />
+        <CPC status="disable" />
+        <CallLimit status="disable" quantity="0" />
+        <Caller_ID status="disable" />
+        <PPPoE status="disable" name="" password="" />
+        <AllGroupCall status="disable" />
+        <SerialCall status="disable" />
+        <CyclicCall status="disable" />
+        <TimeCyclicCall time="10" />
+        <InterceptionCode code="21" />
+        <ProtocolHttps status="disable" />
+        <encryptionConfig status="disable" />
+    </Common>
+    <Service_code_menu>
+        <!-- Service code menu settings -->
+        <SCM_number DnD="80" CFU="81" CFNR="82" CFB="83" PTY3="84" CW_CH="15" ALRM="86" CT="87" CLIP="88" CLIR="89" CFUT="90" CH="91" BAN_CALL="92" CBAC="93" CONF="94" MMC="95" PBX="96" COLP="97" COLR="98" CONP="99" CNIR="70" PICKUP_CALL="71" SAVE_NUM="72" REDIAL_NUM="73" WITHOUT_DIALING="74" INCOMING_CALL_BAN="75" OUTGOING_CALL_BAN="76" />
+        <HotLine code="53" timeout="4" />
+        <CallWaiting code="43" />
+        <CallForward LCFU="-" LCFB="-" LCFT="-" LCFT_timer="-" />
+    </Service_code_menu>
+    <Channels_settings>
+        <!-- Channel settings -->
+        <channel id="0" status="disable" termination_id="0">
+            <number id="$user_port_00" nm="$number_port_00" h323_number="1" />
+            <password id="$passwd_port_00" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="0" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="1" status="disable" termination_id="1">
+            <number id="$user_port_01" nm="$number_port_01" h323_number="1" />
+            <password id="$passwd_port_01" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="1" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="2" status="disable" termination_id="2">
+            <number id="$user_port_02" nm="$number_port_02" h323_number="1" />
+            <password id="$passwd_port_02" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="2" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="3" status="disable" termination_id="3">
+            <number id="$user_port_03" nm="$number_port_03" h323_number="1" />
+            <password id="$passwd_port_03" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="3" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="4" status="disable" termination_id="4">
+            <number id="$user_port_04" nm="$number_port_04" h323_number="1" />
+            <password id="$passwd_port_04" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="4" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="5" status="disable" termination_id="5">
+            <number id="$user_port_05" nm="$number_port_05" h323_number="1" />
+            <password id="$passwd_port_05" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="5" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="6" status="disable" termination_id="6">
+            <number id="$user_port_06" nm="$number_port_06" h323_number="1" />
+            <password id="$passwd_port_06" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="6" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="7" status="disable" termination_id="7">
+            <number id="$user_port_07" nm="$number_port_07" h323_number="1" />
+            <password id="$passwd_port_07" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="7" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="8" status="disable" termination_id="8">
+            <number id="$user_port_08" nm="$number_port_08" h323_number="1" />
+            <password id="$passwd_port_08" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="8" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="9" status="disable" termination_id="9">
+            <number id="$user_port_09" nm="$number_port_09" h323_number="1" />
+            <password id="$passwd_port_09" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="9" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="10" status="disable" termination_id="10">
+            <number id="$user_port_10" nm="$number_port_10" h323_number="1" />
+            <password id="$passwd_port_10" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="10" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="11" status="disable" termination_id="11">
+            <number id="$user_port_11" nm="$number_port_11" h323_number="1" />
+            <password id="$passwd_port_11" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="11" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="12" status="disable" termination_id="12">
+            <number id="$user_port_12" nm="$number_port_12" h323_number="1" />
+            <password id="$passwd_port_12" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="12" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="13" status="disable" termination_id="13">
+            <number id="$user_port_13" nm="$number_port_13" h323_number="1" />
+            <password id="$passwd_port_13" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="13" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="14" status="disable" termination_id="14">
+            <number id="$user_port_14" nm="$number_port_14" h323_number="1" />
+            <password id="$passwd_port_14" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="14" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="15" status="disable" termination_id="15">
+            <number id="$user_port_15" nm="$number_port_15" h323_number="1" />
+            <password id="$passwd_port_15" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="15" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="16" status="disable" termination_id="16">
+            <number id="$user_port_16" nm="$number_port_16" h323_number="1" />
+            <password id="$passwd_port_16" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="16" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="17" status="disable" termination_id="17">
+            <number id="$user_port_17" nm="$number_port_17" h323_number="1" />
+            <password id="$passwd_port_17" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="17" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="18" status="disable" termination_id="18">
+            <number id="$user_port_18" nm="$number_port_18" h323_number="1" />
+            <password id="$passwd_port_18" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="18" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="19" status="disable" termination_id="19">
+            <number id="$user_port_19" nm="$number_port_19" h323_number="1" />
+            <password id="$passwd_port_19" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="19" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="20" status="disable" termination_id="20">
+            <number id="$user_port_20" nm="$number_port_20" h323_number="1" />
+            <password id="$passwd_port_20" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="20" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="21" status="disable" termination_id="21">
+            <number id="$user_port_21" nm="$number_port_21" h323_number="1" />
+            <password id="$passwd_port_21" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="21" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="22" status="disable" termination_id="22">
+            <number id="$user_port_22" nm="$number_port_22" h323_number="1" />
+            <password id="$passwd_port_22" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="22" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="23" status="disable" termination_id="23">
+            <number id="$user_port_23" nm="$number_port_23" h323_number="1" />
+            <password id="$passwd_port_23" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="23" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="24" status="disable" termination_id="24">
+            <number id="$user_port_24" nm="$number_port_24" h323_number="1" />
+            <password id="$passwd_port_24" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="24" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="25" status="disable" termination_id="25">
+            <number id="$user_port_25" nm="$number_port_25" h323_number="1" />
+            <password id="$passwd_port_25" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="25" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="26" status="disable" termination_id="26">
+            <number id="$user_port_26" nm="$number_port_26" h323_number="1" />
+            <password id="$passwd_port_26" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="26" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="27" status="disable" termination_id="27">
+            <number id="$user_port_27" nm="$number_port_27" h323_number="1" />
+            <password id="$passwd_port_27" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="27" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="28" status="disable" termination_id="28">
+            <number id="$user_port_28" nm="$number_port_28" h323_number="1" />
+            <password id="$passwd_port_28" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="28" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="29" status="disable" termination_id="29">
+            <number id="$user_port_29" nm="$number_port_29" h323_number="1" />
+            <password id="$passwd_port_29" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="29" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="30" status="disable" termination_id="30">
+            <number id="$user_port_30" nm="$number_port_30" h323_number="1" />
+            <password id="$passwd_port_30" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="30" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="31" status="disable" termination_id="31">
+            <number id="$user_port_31" nm="$number_port_31" h323_number="1" />
+            <password id="$passwd_port_31" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="31" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="32" status="disable" termination_id="32">
+            <number id="$user_port_32" nm="$number_port_32" h323_number="1" />
+            <password id="$passwd_port_32" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="32" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="33" status="disable" termination_id="33">
+            <number id="$user_port_33" nm="$number_port_33" h323_number="1" />
+            <password id="$passwd_port_33" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="33" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="34" status="disable" termination_id="34">
+            <number id="$user_port_34" nm="$number_port_34" h323_number="1" />
+            <password id="$passwd_port_34" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="34" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+        <channel id="35" status="disable" termination_id="35">
+            <number id="$user_port_35" nm="$number_port_35" h323_number="1" />
+            <password id="$passwd_port_35" h323_pass="undefined" />
+            <TwinLine status="disable" twin_number="-" twin_password="QbiZlj1-" nm="-" />
+            <flash duration="500" />
+            <GroupCall groupIncomming="-1" groupInterception="-1" groupOutgoing="-1" />
+            <Fax type="G.711" />
+            <Caller_ID type="1" name="" />
+            <Packet_interval time="20" codec="g711a" />
+            <Blacklist in="disable" out="disable" rules_in="" rules_out="" />
+            <P2PChannel number="" destination="" />
+            <DTMF_method pload="101" id="1" ploadFlash="101" idFlash="1" />
+            <GAIN status="enable" in="0" out="50" />
+            <Tariffing status="disable" type="none" period="0" interval="0" />
+            <slic voltage="42" current="20" />
+            <speeddial status="disable" />
+            <keepalive status="disable" method="1" interval="30" />
+            <impulse_tone interval="90" interval_beetwin_series="120" flash_dur_max="300" flash_dur_min="80" pulse_dur_max="80" pulse_dur_min="30" beetwin_pulse_dur_max="75" beetwin_pulse_dur_min="20" />
+            <PTY3 server="" />
+            <profile view="trapeze" frequency="25" crest_factor="1.100000" voc="55" bias="0" balanced="disable" ring_profile="" status="disable" />
+            <profileDC gkey_th="18" gkey_deb="16" hook_th="11" hook_deb="8" hook_hyst="disable" trip_th="26" trip_cur_lim="78" trip_ring_mode="AC" feed_vol="42" feed_cur_lim="26" long_imp="100" />
+            <fxs_fxo_connection ip="" channel="35" />
+            <self_pbx nm="" />
+            <dialplan status="disable" rule="" />
+            <SIP_server id="0" IP="192.168.1.2" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" />
+            <SIP_server id="1" IP="192.168.1.1" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="2" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="3" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <SIP_server id="4" IP="" port="5060" MAC="00:aa:bb:cc:dd:ee" expires="300" local_proxy="disable" outbound_proxy="disable" proxy_IP="" proxy_IP_port="5060" />
+            <ASF mwi="disable" ring_back="disable" secret="" DnD="disable" CFU="" CFNR="" CFB="" PTY3="disable" CW_CH="disable" CT="disable" LCFU="disable" LCFT="disable" LCFB="disable" Local_Transfer_Number="" CLIP="" CLIR="disable" CFUT="" CH="" BAN_CALL="" CBAC="" ALRM="" PICKUP_CALL="" SAVE_NUM="" REDIAL_NUM="" WITHOUT_DIALING="" INCOMING_CALL_BAN="" OUTGOING_CALL_BAN="" EarlyMedia="disable" PlayFlash="enable" NotifyMwi="disable" local_transfer_number="" />
+            <AlternativeNumber AlterNumber="" AlterNumberStatus="disable" />
+            <other CNG="disable" VAD="disable" VAD_TUNE="1" AEC="enable" AGC="enable" PLC="disable" />
+            <jitter delayMin="0" delayMax="200" delayInit="0" AP="10000" SoftMode="enable" DT="500" />
+            <dvo hotline_status="disable" hotline_num="" hotline_timeout="0" />
+            <specialCall status="disable" rule="" profile="1" />
+        </channel>
+    </Channels_settings>
+    <ipTablesSettings>
+        <!-- Ip tables settings -->
+    </ipTablesSettings>
+    <CadenceSettings>
+        <!-- Cadence Settings -->
+        <cadenceBusyTone cadence="425;425;350;350;425;425;350;350;425;425;350;350" />
+        <cadenceDialTone cadence="425;425;0;0;425;425;0;0;425;425;0;0" />
+        <cadenceRingBackTone cadence="425;425;1000;4000;425;425;1000;4000;425;425;1000;4000" />
+        <cadenceCustom1 cadence="425;425;200;5000;425;425;200;5000;425;425;200;5000" />
+        <cadenceCustom2 cadence="950;950;330;0;1400;1400;330;0;1800;1800;330;1000" />
+        <cadenceCustom3 cadence="425;425;200;5000;425;425;200;5000;425;425;200;5000" />
+        <cadenceCustom4 cadence="425;425;200;200;425;425;200;200;425;425;200;200" />
+    </CadenceSettings>
+    <VirtualAccountSettings>
+        <!-- Virtual account settings -->
+        <virtualAccountState state="disable" />
+    </VirtualAccountSettings>
+</MGW>
