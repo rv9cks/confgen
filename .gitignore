@@ -1,0 +1,16 @@
+```
+# Generated files
+*-generated-*.xml
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+.env
+.env.local
+.env.*
+```
